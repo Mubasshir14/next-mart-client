@@ -14,9 +14,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { logout } from "@/services/AuthService";
 import { useUser } from "@/context/UserContext";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
-import { protectedRoutes } from "@/constants";
+import { usePathname, useRouter } from "next/navigation";
+import { protectedRoutes } from "@/contants";
 
 export default function Navbar() {
   const { user, setIsLoading } = useUser();
@@ -30,13 +29,15 @@ export default function Navbar() {
       router.push("/");
     }
   };
+
   return (
     <header className="border-b w-full">
       <div className="container flex justify-between items-center mx-auto h-16 px-3">
-        <h1 className="text-2xl font-black flex items-center">
-          <Logo />
-          Next Mart
-        </h1>
+        <Link href="/">
+          <h1 className="text-2xl font-black flex items-center">
+            <Logo /> Next Mart
+          </h1>
+        </Link>
         <div className="max-w-md  flex-grow">
           <input
             type="text"
@@ -51,11 +52,13 @@ export default function Navbar() {
           <Button variant="outline" className="rounded-full p-0 size-10">
             <ShoppingBag />
           </Button>
+
           {user ? (
             <>
               <Link href="/create-shop">
-                <Button className="rounded-fullded">Create Shop</Button>
+                <Button className="rounded-full">Create Shop</Button>
               </Link>
+
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <Avatar>
@@ -71,18 +74,18 @@ export default function Navbar() {
                   <DropdownMenuItem>My Shop</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
-                    className="bg-red-500 cursor-default"
+                    className="bg-red-500 cursor-pointer"
                     onClick={handleLogOut}
                   >
                     <LogOut />
-                    <span>Logout</span>
+                    <span>Log Out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </>
           ) : (
             <Link href="/login">
-              <Button variant={"outline"} className="rounded-fullded">
+              <Button className="rounded-full" variant="outline">
                 Login
               </Button>
             </Link>

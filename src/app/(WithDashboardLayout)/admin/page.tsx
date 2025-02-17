@@ -1,7 +1,7 @@
 const AdminHomePage = () => {
   return (
     <div>
-      <h1>This is Admin Home Page</h1>
+      <h1>Admin Home Page</h1>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 "use server";
+
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
@@ -13,9 +14,11 @@ export const registerUser = async (userData: FieldValues) => {
       body: JSON.stringify(userData),
     });
     const result = await res.json();
+
     if (result.success) {
       (await cookies()).set("accessToken", result.data.accessToken);
     }
+
     return result;
   } catch (error: any) {
     return Error(error);
@@ -33,9 +36,11 @@ export const loginUser = async (userData: FieldValues) => {
     });
 
     const result = await res.json();
+
     if (result.success) {
       (await cookies()).set("accessToken", result.data.accessToken);
     }
+
     return result;
   } catch (error: any) {
     return Error(error);
@@ -66,6 +71,7 @@ export const reCaptchaTokenVerification = async (token: string) => {
         response: token,
       }),
     });
+
     return res.json();
   } catch (err: any) {
     return Error(err);

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import { Button } from "../../button";
 import { X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 type TImangePreviewer = {
   setImageFiles: React.Dispatch<React.SetStateAction<File[]>>;
