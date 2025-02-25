@@ -1,6 +1,6 @@
 export interface IMeta {
   page: number;
   limit: number;
-  totaal: number;
+  total: number;
   totalPage: number;
 }

@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { cities } from "@/constant/cities";
+import { cities } from "@/constants/cities";
 import {
   citySelector,
   shippingAddressSelector,
@@ -28,8 +28,6 @@ export default function Address() {
 
   const handleShippingAddress = (address: string) => {
     dispatch(updateShippingAddress(address));
-    console.log(selectedCity);
-    console.log(shippingAddress);
   };
 
   return (

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import ManageCategories from "@/components/modules/shop/category";
 import { getAllCategories } from "@/services/Category";
 

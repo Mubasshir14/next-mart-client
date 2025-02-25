@@ -4,11 +4,11 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import CreateBrandModal from "./CreateBrandModal";
 import { toast } from "sonner";
-import DeleteConfirmationModal from "@/components/ui/core/NMModal/DeleteConfirmationModal";
+import { IBrand } from "@/types";
 import { deleteBrand } from "@/services/Brand";
-import CreateBrandModal from "./CreatebrandModal";
-import { IBrand } from "@/types/brand";
+import DeleteConfirmationModal from "@/components/ui/core/NMModal/DeleteConfirmationModal";
 
 const ManageBrands = ({ brands }: { brands: IBrand[] }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -16,7 +16,6 @@ const ManageBrands = ({ brands }: { brands: IBrand[] }) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const handleDelete = (data: IBrand) => {
-    console.log(data);
     setSelectedId(data?._id);
     setSelectedItem(data?.name);
     setModalOpen(true);

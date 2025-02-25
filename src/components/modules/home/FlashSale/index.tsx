@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import NMContainer from "@/components/ui/core/NMContainer";
 import ProductCard from "@/components/ui/core/ProductCard";
 import { getFlashSaleProducts } from "@/services/FlashSale";
-import { IProduct } from "@/types/product";
+import { IProduct } from "@/types";
 import Link from "next/link";
 import CountDown from "./CountDown";
 
